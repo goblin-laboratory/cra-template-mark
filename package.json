@@ -9,7 +9,7 @@
   "description": "The base template for Create React App.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/goblin-laboratory/cra-template-mark.git",
+    "url": "https://github.com/goblin-laboratory/cra-template-mark.git"
   },
   "license": "MIT",
   "engines": {
@@ -21,5 +21,12 @@
   "files": [
     "template",
     "template.json"
-  ]
+  ],
+  "scripts": {
+    "test": "rimraf example && npx create-react-app example --template file:./"
+  },
+  "devDependencies": {
+    "create-react-app": "^5.0.1",
+    "rimraf": "^3.0.2"
+  }
 }
