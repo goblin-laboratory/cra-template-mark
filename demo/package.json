@@ -2,17 +2,25 @@
   "name": "demo",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.0"
-  },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "antd": "^4.21.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.0"
+  },
+  "devDependencies": {
+    "@craco/craco": "^6.4.3",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "craco-less": "^2.0.0"
   },
   "eslintConfig": {
     "extends": [
@@ -31,11 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@craco/craco": "^6.4.3",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1"
   }
 }
