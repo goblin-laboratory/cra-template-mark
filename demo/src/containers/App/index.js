@@ -1,9 +1,9 @@
 import React from "react";
 import { Button } from "antd";
-import "./App.less";
+import styles from "./index.module.less";
 
 const App = () => (
-  <div className="App">
+  <div className={styles.app}>
     <Button type="primary">Button</Button>
   </div>
 );
