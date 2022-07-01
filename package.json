@@ -28,5 +28,8 @@
   "devDependencies": {
     "create-react-app": "^5.0.1",
     "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0"
   }
 }
