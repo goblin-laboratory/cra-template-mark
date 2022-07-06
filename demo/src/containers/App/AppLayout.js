@@ -14,7 +14,9 @@ function AppLayout() {
   return (
     <Layout className={styles.layout}>
       <Layout.Sider theme="dark" breakpoint="md" className={styles.sider}>
-        <h1>cra-template-mark</h1>
+        <div className={styles.trademark}>
+          <div className={styles.brand}>cra-template-mark</div>
+        </div>
         <Menu
           mode="inline"
           theme="dark"
