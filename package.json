@@ -23,13 +23,19 @@
     "template.json"
   ],
   "scripts": {
-    "test": "rimraf example && npx create-react-app example --template file:./"
+    "test": "rimraf example && npx create-react-app example --template file:./",
+    "release": "standard-version && nrm use npm && npm publish && nrm use taobao",
+    "release:alpha": "standard-version -- --prerelease alpha",
+    "publish:next": "nrm use npm && npm publish --tag next && nrm use taobao",
+    "nrm": "nrm use taobao"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
     "create-react-app": "^5.0.1",
-    "rimraf": "^3.0.2"
+    "husky": "^8.0.1",
+    "rimraf": "^3.0.2",
+    "standard-version": "^9.5.0"
   },
-  "dependencies": {
-    "@ant-design/icons": "^4.7.0"
-  }
+  "dependencies": {}
 }
