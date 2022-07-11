@@ -23,6 +23,7 @@
     "template.json"
   ],
   "scripts": {
+    "prepare": "husky install",
     "test": "rimraf example && npx create-react-app example --template file:./",
     "release": "standard-version && nrm use npm && npm publish && nrm use taobao",
     "release:alpha": "standard-version -- --prerelease alpha",
