@@ -1,46 +1,38 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Layout, Skeleton, Menu } from "antd";
-import {
-  DashboardOutlined,
-  TeamOutlined,
-  UserOutlined,
-  LogoutOutlined,
-} from "@ant-design/icons";
+import { Layout, Skeleton, Menu, Result, Button } from "antd";
+import { UserOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import SiderMenu from "./SiderMenu";
+import useApp from "./useApp";
 import styles from "./index.module.less";
 
 function AppLayout() {
+  const { loading, userInfo } = useApp();
+  if (loading) {
+    return <Skeleton active />;
+  }
+  if (!userInfo) {
+    return (
+      <Result
+        status="500"
+        title="500"
+        subTitle="网络异常，请检查后刷新页面重试。"
+        extra={
+          <Button type="primary" onClick={() => global.location.reload()}>
+            刷新
+          </Button>
+        }
+      />
+    );
+  }
   return (
     <Layout className={styles.layout}>
       <Layout.Sider theme="dark" breakpoint="md" className={styles.sider}>
         <div className={styles.trademark}>
           <div className={styles.brand}>cra-template-mark</div>
         </div>
-        <Menu
-          mode="inline"
-          theme="dark"
-          items={[
-            {
-              key: "/",
-              label: (
-                <Link to="/">
-                  <DashboardOutlined />
-                  <span>系统概况</span>
-                </Link>
-              ),
-            },
-            {
-              key: "/users",
-              label: (
-                <Link to="/users">
-                  <TeamOutlined />
-                  <span>用户管理</span>
-                </Link>
-              ),
-            },
-          ]}
-        ></Menu>
+        <SiderMenu />
       </Layout.Sider>
       <Layout id="backTopTarget">
         <Layout.Header className={styles.header}>
