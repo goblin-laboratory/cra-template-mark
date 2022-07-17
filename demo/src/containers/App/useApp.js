@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { loadingState, userInfoState } from "./appRecoil";
+import { loadingState, userState } from "./appRecoil";
 
 function getUserInfo() {
   return new Promise((resolve, reject) => {
@@ -18,7 +18,7 @@ function getUserInfo() {
 
 function useApp() {
   const [loading, setLoading] = useRecoilState(loadingState);
-  const [userInfo, setUserInfo] = useRecoilState(userInfoState);
+  const [userInfo, setUserInfo] = useRecoilState(userState);
   const ref = React.useRef({});
 
   const onLoad = React.useCallback(async () => {
@@ -42,7 +42,7 @@ function useApp() {
     };
   }, [onLoad]);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     if (!ref.current) {
       return;
     }

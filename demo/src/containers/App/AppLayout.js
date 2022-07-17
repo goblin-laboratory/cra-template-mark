@@ -9,10 +9,12 @@ import styles from "./index.module.less";
 
 function AppLayout() {
   const { loading, userInfo } = useApp();
-  if (loading) {
-    return <Skeleton active />;
-  }
+
   if (!userInfo) {
+    if (loading) {
+      return <Skeleton active />;
+    }
+    // TODO: 登录弹窗提示
     return (
       <Result
         status="500"
@@ -27,14 +29,14 @@ function AppLayout() {
     );
   }
   return (
-    <Layout className={styles.layout}>
+    <Layout className={styles.appLayout}>
       <Layout.Sider theme="dark" breakpoint="md" className={styles.sider}>
         <div className={styles.trademark}>
           <div className={styles.brand}>cra-template-mark</div>
         </div>
         <SiderMenu />
       </Layout.Sider>
-      <Layout id="backTopTarget">
+      <Layout className={styles.layout} id="backTopTarget">
         <Layout.Header className={styles.header}>
           <div className={styles.flexItem}></div>
           <Menu
@@ -46,7 +48,7 @@ function AppLayout() {
                 label: (
                   <Link to="/user">
                     <UserOutlined />
-                    <span>用户昵称</span>
+                    <span>{userInfo.title}</span>
                   </Link>
                 ),
               },

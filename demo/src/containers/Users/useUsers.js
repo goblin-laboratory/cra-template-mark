@@ -3,28 +3,35 @@ import queryString from "query-string";
 // import { useSelector, shallowEqual } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
-function getUserList() {
+function getUserList({ start, limit }) {
   console.log("getUserList");
   return new Promise((resolve, reject) => {
     global.setTimeout(() => {
-      resolve({
-        data: {
-          list: [
-            { username: "a1", role: 1, title: "用户 1" },
-            { username: "a2", role: 0, title: "用户 2" },
-            { username: "a3", role: 1, title: "用户 3" },
-            { username: "a4", role: 1, title: "用户 4" },
-            { username: "a5", role: 1, title: "用户 5" },
-            { username: "a6", role: 2, title: "用户 6" },
-            { username: "a7", role: 1, title: "用户 7" },
-            { username: "a8", role: 1, title: "用户 8" },
-            { username: "a9", role: 1, title: "用户 9" },
-            { username: "a10", role: 1, title: "用户 10" },
-          ],
-          total: 10,
-          start: 0,
-        },
-      });
+      const data = { total: 100, list: [], start };
+      if (start <= data.total) {
+        data.list = [
+          { username: "a1", role: 1, title: "用户 1" },
+          { username: "a2", role: 0, title: "用户 2" },
+          { username: "a3", role: 1, title: "用户 3" },
+          { username: "a4", role: 1, title: "用户 4" },
+          { username: "a5", role: 1, title: "用户 5" },
+          { username: "a6", role: 2, title: "用户 6" },
+          { username: "a7", role: 1, title: "用户 7" },
+          { username: "a8", role: 1, title: "用户 8" },
+          { username: "a9", role: 1, title: "用户 9" },
+          { username: "a10", role: 1, title: "用户 10" },
+          { username: "a11", role: 1, title: "用户 10" },
+          { username: "a12", role: 1, title: "用户 10" },
+          { username: "a13", role: 1, title: "用户 10" },
+          { username: "a14", role: 1, title: "用户 10" },
+          { username: "a15", role: 1, title: "用户 10" },
+          { username: "a17", role: 1, title: "用户 10" },
+          { username: "a18", role: 1, title: "用户 10" },
+          { username: "a19", role: 1, title: "用户 10" },
+          { username: "a20", role: 1, title: "用户 10" },
+        ];
+      }
+      resolve({ data });
     }, 1000);
   });
 }

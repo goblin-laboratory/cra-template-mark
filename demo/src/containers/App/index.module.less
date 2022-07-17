@@ -1,20 +1,50 @@
-@import '~antd/dist/antd.less';
+@import "~antd/dist/antd.less";
 
-
-.layout {
+.appLayout {
   width: 100%;
   height: 100%;
 
-  .header {
-    display: flex;
-    background-color: #fff;
+  .layout {
+    overflow-y: auto;
+    // &::-webkit-scrollbar {
+    //   width: 6px;
+    //   background-color: #eee;
+    // }
+    // &::-webkit-scrollbar-thumb {
+    //   background-color: #c1c1c1;
+
+    //   &:hover {
+    //     background-color: #a8a8a8;
+    //   }
+
+    //   &:active {
+    //     background-color: #787878;
+    //   }
+    // }
+    // & {
+    //   scrollbar-width: thin;
+    //   scrollbar-color: #c1c1c1 #eee;
+    // }
   }
 
-  .flexItem {
-    flex: 1;
+  .header {
+    padding: 0 @padding-sm;
+    display: flex;
+    background-color: @component-background;
+    color: @heading-color;
+    box-shadow: 0 2px 2px @shadow-color;
+    .flexItem {
+      flex: 1;
+    }
+    :global(.ant-menu-horizontal) {
+      border-bottom: 0 none transparent;
+    }
+  }
+
+  .content {
+    margin: @padding-lg;
   }
 }
-
 
 .trademark {
   height: @layout-header-height;
