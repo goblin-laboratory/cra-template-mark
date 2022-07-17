@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "antd": "^4.21.4",
+    "dayjs": "^1.11.3",
     "query-string": "^7.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -23,7 +24,9 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
-    "craco-less": "^2.0.0"
+    "antd-dayjs-webpack-plugin": "^1.0.6",
+    "craco-less": "^2.0.0",
+    "webpack-bundle-analyzer": "^4.5.0"
   },
   "eslintConfig": {
     "extends": [
