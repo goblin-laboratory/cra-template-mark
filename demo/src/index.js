@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RecoilRoot } from "recoil";
+import { ConfigProvider } from "antd";
+import zhCN from "antd/es/locale-provider/zh_CN";
+
 import App from "./containers/App";
 import "./index.less";
 import reportWebVitals from "./reportWebVitals";
@@ -10,7 +13,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RecoilRoot>
-      <App />
+      <ConfigProvider locale={zhCN}>
+        <App />
+      </ConfigProvider>
     </RecoilRoot>
   </React.StrictMode>
 );
