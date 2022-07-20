@@ -55,18 +55,11 @@ const reducer = (state, action) => {
 function useUsers() {
   const location = useLocation();
   const navigate = useNavigate();
+  const ref = React.useRef(null);
   const [{ page, pageSize, loading, list, total }, dispatch] = React.useReducer(
     reducer,
     initialState
   );
-  const ref = React.useRef({});
-
-  // const { roleInfo } = useSelector(
-  //   (state) => ({
-  //     roleInfo: state.app.roleInfo || null,
-  //   }),
-  //   shallowEqual
-  // );
 
   const onLoad = React.useCallback(
     async (params) => {
@@ -79,7 +72,6 @@ function useUsers() {
         start: (params.page - 1) * pageSize,
         limit: pageSize,
       });
-      console.log(`onLoad loading: ${ref.current.loading}`);
       if (!ref.current || !ref.current.loading) {
         return;
       }
@@ -120,9 +112,9 @@ function useUsers() {
   }, [navigate]);
 
   React.useEffect(() => {
+    ref.current = {};
     return () => {
-      console.log("useUsers unmounted");
-      ref.current = {};
+      ref.current = null;
     };
   }, []);
 

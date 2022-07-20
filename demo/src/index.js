@@ -3,10 +3,9 @@ import ReactDOM from "react-dom/client";
 import { RecoilRoot } from "recoil";
 import { ConfigProvider } from "antd";
 import zhCN from "antd/es/locale-provider/zh_CN";
-
 import App from "./containers/App";
-import "./index.less";
 import reportWebVitals from "./reportWebVitals";
+import "./index.less";
 
 // https://stackoverflow.com/questions/61254372/my-react-component-is-rendering-twice-because-of-strict-mode
 const root = ReactDOM.createRoot(document.getElementById("root"));
